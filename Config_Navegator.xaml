@@ -1,0 +1,294 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Config_Navegator" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_settingsURL" Type="InArgument(x:String)" />
+    <x:Property Name="in_vendorsFilePath" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1118,3799</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Config_Navegator" sap:VirtualizedContainerService.HintSize="528,3734" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="486,94" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Configurar el navegador para que las descargas se realicen en la carpeta C:\Vendors" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Edge: Configuración" sap:VirtualizedContainerService.HintSize="486,3512" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="05c5ac84-0a1d-4c80-a4d5-464f3fa1c5fb" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="452,3295" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="askAfterIsEnabled" />
+              <Variable x:TypeArguments="x:Boolean" Name="openOfficeInExplorerIsEnabled" />
+              <Variable x:TypeArguments="x:String" Name="downloadsPath" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'editable text'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" ScopeIdentifier="05c5ac84-0a1d-4c80-a4d5-464f3fa1c5fb" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="153, 46, 1360, 26" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'editable text'" FullSelectorArgument="&lt;ctrl name='Nueva pestaña - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='Barra de la aplicación' role='tool bar' /&gt;&lt;ctrl name='Dirección y barra de búsqueda' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Nueva pestaña - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='Barra de la aplicación' role='tool bar' /&gt;&lt;ctrl name='Dirección y barra de búsqueda' role='editable text' automationid='' /&gt;" Guid="9cfa6bf4-13f4-4bf7-acc9-bfe41f37cc56" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABVQAAAAeCAYAAADD/5WJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEISURBVHhe7dgBDQAgDMAw/DtAC6KQcCQwAW0yE1v73JEkSZIkSZIk/VsDAAAAAEBiqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARIYqAAAAAEBkqAIAAAAARGufO5IkSZIkSZKkX3ce49hHbF4TPosAAAAASUVORK5CYII=" InformativeScreenshot="d09668470b4c5e7fb34a0bbeb0a961cd.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Nueva pestaña - Personal: Microsoft​ Edge' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.Text>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">in_settingsURL</CSharpValue>
+                </InArgument>
+              </uix:NTypeInto.Text>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="410,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+            <uix:NGetAttributeGeneric x:TypeArguments="x:Boolean" Attribute="checked" DisplayName="Get Attribute 'Preguntarme qué'" sap:VirtualizedContainerService.HintSize="410,207" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_6" ScopeIdentifier="05c5ac84-0a1d-4c80-a4d5-464f3fa1c5fb" Version="V3">
+              <uix:NGetAttributeGeneric.Result>
+                <OutArgument x:TypeArguments="x:Boolean">
+                  <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">askAfterIsEnabled</CSharpReference>
+                </OutArgument>
+              </uix:NGetAttributeGeneric.Result>
+              <uix:NGetAttributeGeneric.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="1162, 287, 40, 20" DesignTimeScaleFactor="1" ElementType="CheckBox" FriendlyName="'Checkbox'" FullSelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl name='Preguntarme qué hacer con cada descarga' role='check box' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl name='Preguntarme qué hacer con cada descarga' role='check box' automationid='' /&gt;" Guid="124ff730-5f2b-4f03-ab03-c00ee3b282cc" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAAYCAYAAACBbx+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFUSURBVFhH3ZfRDYJADIbdhycWYgHCBixAWIAwAs/sQFiBGViB1HzGIwWLmuip9U+aGDj6f3fXK3gSZ/o/4GEYpG1bKctSiqKQPM/fGuQkNx54PdIhMA+TqGkaGcdR5nmWZVmud98ncpIbD7zwvAduAnddJ1VVyTRN1yufE554w2DpBpiBzDTGaj4rvGGwoDfAbAWz+yZsEAyw7MtjA0z9WGXQ971kWSZpml6C31yLLVhg0lqBmQnbsFdd15IkiRnciy2Y9CqvwLQVTqoWq2iB6oi90jDBFrQCs/S0Fy223oLUwZiYgkmXxQpMA98fNurVgtTBmJiCCbYgv8DuSsLdoXPX1hBL7+bFgZiJq1czcvXxE8RAZmeVR2zhibcFi0xgxFZQP8yUk0p7ibHq5CQ3HnjhuS8DrUPgIB6mrZCIBm79zXklyEluPO6BBj0E/jU5AxY5AxKwAKZCLHj+AAAAAElFTkSuQmCC" InformativeScreenshot="40f37f0ce54fef0e26b084313b45f88b.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Configuración - Personal: Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArgument="Preguntarme que hacer con cada descarga" CvType="Text" DesignTimeRectangle="414, 277, 740, 38" FriendlyName="'Preguntarme qué'" FullSelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl idx='20' role='grouping' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl automationid='' role='grouping' check:text='Preguntarme qué hacer con cada descarga' /&gt;" ImageBase64="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" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetAttributeGeneric.Target>
+            </uix:NGetAttributeGeneric>
+            <If sap:VirtualizedContainerService.HintSize="410,427" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">askAfterIsEnabled</CSharpValue>
+                </InArgument>
+              </If.Condition>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Checkbox'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05c5ac84-0a1d-4c80-a4d5-464f3fa1c5fb" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="822, 321, 40, 20" DesignTimeScaleFactor="1" ElementType="CheckBox" FriendlyName="'Checkbox'" FullSelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl idx='2' name='Configuración' role='grouping' /&gt;&lt;ctrl name='Preguntarme qué hacer con cada descarga' role='check box' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl name='Preguntarme qué hacer con cada descarga' role='check box' automationid='' /&gt;" Guid="184b1007-3acd-450d-a216-939091b2ddc1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAAYCAYAAACBbx+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE/SURBVFhH3ZaxDgFBEIbFCyi8kqdQewilqL2BQqvxENTKOzqN6CQqiURi+Kw9t2vY5tZZf/Inl7Mz82V27F5DEtP/AU+WB+mMN9IerqXZz6RRsclJbmpQK6S3wASTqDVYPZLnTqFqbXJTi5qfwFXg3mx3C157Sb9nasOg6QXYwNqu1mcYNGgHmK2os7O+YfHHwwFmfrTAqt2dbmW+OcrpfLmbZ95pa2EqqwA23Y0/CqPF/lHxVfzmr4ep3OUCmGPFX1y16WJIWqdhsyqAzTjEPLqy+9aHxBo3LnfGogCOcSn4Zl5DYo0fB5tVusDJjURyf7rkjjVkxsINiGG6yNYzr5hnrbO4PA7IATZdTuhqRkl9/FgZ6Po6TW0NFqnAiK1gfp7d/uEP+LII5lghUYzLhZzkpsYnUKsg8K8pMWCRK57zPUn50UhDAAAAAElFTkSuQmCC" InformativeScreenshot="b109a9797801ce0d6d065a6c4887cea4.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Configuración - Personal: Microsoft​ Edge' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4" />
+              </If.Else>
+            </If>
+            <uix:NGetAttributeGeneric x:TypeArguments="x:Boolean" Attribute="checked" DisplayName="Get Attribute 'Abrir archivos'" sap:VirtualizedContainerService.HintSize="410,207" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_8" ScopeIdentifier="05c5ac84-0a1d-4c80-a4d5-464f3fa1c5fb" Version="V3">
+              <uix:NGetAttributeGeneric.Result>
+                <OutArgument x:TypeArguments="x:Boolean">
+                  <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">openOfficeInExplorerIsEnabled</CSharpReference>
+                </OutArgument>
+              </uix:NGetAttributeGeneric.Result>
+              <uix:NGetAttributeGeneric.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="1162, 360, 40, 20" DesignTimeScaleFactor="1" ElementType="CheckBox" FriendlyName="'Checkbox'" FullSelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl name='Abrir archivos de Office en el explorador' role='check box' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl name='Abrir archivos de Office en el explorador' role='check box' automationid='' /&gt;" Guid="5c3ecfae-2a3f-42bb-a486-7dadee1bb6ae" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAAYCAYAAACBbx+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFSSURBVFhH3ZfBDYJAEEXthxMN0RA3KIArd+BOFYQCaIACyJhnXDLgoCa66viTSQws89/uzg54Emf6P+BhGKTrOqmqSsqylKIo3hrkJDceeD3SITAPk6hpGhnHUeZ5lmVZrnffJ3KSGw+88LwHbgL3fS91Xcs0TdcrnxOeeMNg6QaYgcw0xmo+K7xhsKA3wGwFs/smbBAMsOzLYwNM/Vhl0LatZFkmaZpegt9ciy1YYNJagZkJ27BXnueSJIkZ3IstmPQqr8C0FU6qFqtogeqIvdIwwRa0ArP0tBcttt6C1MGYmIJJl8UKTAPfHzbq1YLUwZiYggm2IL/A7krC3aFz19YQS+/mxYGYiatXM3L18RPEQGZnlUds4Ym3BYtMYMRWUD/MlJNKe4mx6uQkNx544bkvA61D4CAepq2QiAZu/c15JchJbjzugQY9BP41OQMWOQNUUi36f/rqTgAAAABJRU5ErkJggg==" InformativeScreenshot="c72e80ffbdafce105c064b53678ac07b.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Configuración - Personal: Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArgument="Abrir archivos de Office en el explorador" CvType="Text" DesignTimeRectangle="414, 350, 740, 38" FriendlyName="'Abrir archivos'" FullSelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl idx='23' role='grouping' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl automationid='' role='grouping' check:text='Abrir archivos de Office en el explorador' /&gt;" ImageBase64="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" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetAttributeGeneric.Target>
+            </uix:NGetAttributeGeneric>
+            <If sap:VirtualizedContainerService.HintSize="410,427" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">openOfficeInExplorerIsEnabled</CSharpValue>
+                </InArgument>
+              </If.Condition>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Checkbox'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05c5ac84-0a1d-4c80-a4d5-464f3fa1c5fb" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="822, 394, 40, 20" DesignTimeScaleFactor="1" ElementType="CheckBox" FriendlyName="'Checkbox'" FullSelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl idx='2' name='Configuración' role='grouping' /&gt;&lt;ctrl name='Abrir archivos de Office en el explorador' role='check box' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl name='Abrir archivos de Office en el explorador' role='check box' automationid='' /&gt;" Guid="384fbeed-8340-4377-bcd4-ff8d061d4093" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAAYCAYAAACBbx+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE/SURBVFhH3ZaxDgFBEIbFCyi8kqdQewilqL2BQqvxENTKOzqN6CQqiURi+Kw9t2vY5tZZf/Inl7Mz82V27F5DEtP/AU+WB+mMN9IerqXZz6RRsclJbmpQK6S3wASTqDVYPZLnTqFqbXJTi5qfwFXg3mx3C157Sb9nasOg6QXYwNqu1mcYNGgHmK2os7O+YfHHwwFmfrTAqt2dbmW+OcrpfLmbZ95pa2EqqwA23Y0/CqPF/lHxVfzmr4ep3OUCmGPFX1y16WJIWqdhsyqAzTjEPLqy+9aHxBo3LnfGogCOcSn4Zl5DYo0fB5tVusDJjURyf7rkjjVkxsINiGG6yNYzr5hnrbO4PA7IATZdTuhqRkl9/FgZ6Po6TW0NFqnAiK1gfp7d/uEP+LII5lghUYzLhZzkpsYnUKsg8K8pMWCRK57zPUn50UhDAAAAAElFTkSuQmCC" InformativeScreenshot="e2c27b206ddb32249a1b5e7a70a62808.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Configuración - Personal: Microsoft​ Edge' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6" />
+              </If.Else>
+            </If>
+            <uix:NGetText DisplayName="Get Text 'C:\Vendors'" sap:VirtualizedContainerService.HintSize="410,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="05c5ac84-0a1d-4c80-a4d5-464f3fa1c5fb" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable CvType="AnyWordGroup" DesignTimeRectangle="414, 242, 788, 16" DesignTimeScaleFactor="1" FriendlyName="'C:\Vendors'" FullSelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl idx='19' role='grouping' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl automationid='' role='grouping' /&gt;" Guid="5e543287-1527-4310-beb1-c10160c310c1" ImageBase64="" InformativeScreenshot="421daeeaca7b35aa6b5767e604ee012c.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Configuración - Personal: Microsoft​ Edge' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvElementArea="1130, 207, 73, 34" CvTextArea="1139, 217, 54, 13" CvTextArgument="Cambiar" CvType="Button" DesignTimeRectangle="1130, 208, 72, 32" ElementType="Button" FriendlyName="'Cambiar'" FullSelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl name='Cambiar ubicación' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl name='Cambiar ubicación' role='push button' automationid='' check:text='Cambiar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEwAAAAkCAYAAAAjMNwcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHISURBVGhD7ZpLjoMwDIbnPhynXKVcpeImlZC66ikqdds9J/DETgx5lIcHOu1o/k9iYUIe/nCTLvgiYALCjCTCHo8HXa9XulwuuMLFPtiLkgjjxr7vQwQY9sFelEQYGwUlsRcIWwGEGYEwIxBmBMKMQJgRCDMCYUb2E3Zrqa4qqoarpvYW2vbk3FB1aOkewpz7qZ5t38ouwmSRuSAnsDm9YNkLwl7NdmGcQNVQF8KX89eFdceK6sVK6qiJf65RwlKdx07G8e1evq9afy8ZX4XJiyrHK4TGz2Vj+blbag/ctm4L2SjsLpM15xBO4RY9PuPlaaxiNFZxQ2KScFTBKsBJVqSPxpmw7pj3HeOnW8kCvyMsI65KrbCBXJAIjpLKhAhy4IQ+z9oH0rGKuVewUVia/DRerP4s4goqFs3JJwmvECbPTAibOb3fImz+jTJlFc5W2E+ETVVYfF/4gApTIcVJ6Rbr/1ZkCUu8UZjrP74AP/9Q5bGwXK70fbswj0yelP4oMG1zB8AOFdbyRq9jxv0TSdlW4A6AD6iw/wWEGYEwIxBmBMKMQJgRCDMCYUYgzMikMHyMUjL7MQo+dyov9jH5uRNYBsJMEH0D/gOuebz0JbIAAAAASUVORK5CYII=" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+              <uix:NGetText.TextString>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">downloadsPath</CSharpReference>
+                </OutArgument>
+              </uix:NGetText.TextString>
+            </uix:NGetText>
+            <If sap:VirtualizedContainerService.HintSize="410,1101" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">downloadsPath!=in_vendorsFilePath</CSharpValue>
+                </InArgument>
+              </If.Condition>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,919" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Cambiar'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05c5ac84-0a1d-4c80-a4d5-464f3fa1c5fb" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CvElementArea="1130, 207, 73, 34" CvTextArea="1139, 217, 54, 13" CvTextArgument="Cambiar" CvType="Button" DesignTimeRectangle="1130, 208, 72, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Cambiar'" FullSelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl name='Cambiar ubicación' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Configuración' role='document' /&gt;&lt;ctrl name='Configuración' role='grouping' /&gt;&lt;ctrl name='Cambiar ubicación' role='push button' automationid='' check:text='Cambiar' /&gt;" Guid="5f4b29ca-0f01-4ff0-b97b-2ba81070ff5b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEwAAAAkCAYAAAAjMNwcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHISURBVGhD7ZpLjoMwDIbnPhynXKVcpeImlZC66ikqdds9J/DETgx5lIcHOu1o/k9iYUIe/nCTLvgiYALCjCTCHo8HXa9XulwuuMLFPtiLkgjjxr7vQwQY9sFelEQYGwUlsRcIWwGEGYEwIxBmBMKMQJgRCDMCYUb2E3Zrqa4qqoarpvYW2vbk3FB1aOkewpz7qZ5t38ouwmSRuSAnsDm9YNkLwl7NdmGcQNVQF8KX89eFdceK6sVK6qiJf65RwlKdx07G8e1evq9afy8ZX4XJiyrHK4TGz2Vj+blbag/ctm4L2SjsLpM15xBO4RY9PuPlaaxiNFZxQ2KScFTBKsBJVqSPxpmw7pj3HeOnW8kCvyMsI65KrbCBXJAIjpLKhAhy4IQ+z9oH0rGKuVewUVia/DRerP4s4goqFs3JJwmvECbPTAibOb3fImz+jTJlFc5W2E+ETVVYfF/4gApTIcVJ6Rbr/1ZkCUu8UZjrP74AP/9Q5bGwXK70fbswj0yelP4oMG1zB8AOFdbyRq9jxv0TSdlW4A6AD6iw/wWEGYEwIxBmBMKMQJgRCDMCYUYgzMikMHyMUjL7MQo+dyov9jH5uRNYBsJMEH0D/gOuebz0JbIAAAAASUVORK5CYII=" InformativeScreenshot="18ace4b45790178ab989371d62c7f30b.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Configuración y 1 página más - Personal: Microsoft​ Edge' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Dirección: Descargas'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="HardwareEvents" ScopeIdentifier="05c5ac84-0a1d-4c80-a4d5-464f3fa1c5fb" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable CvType="InputBox" DesignTimeRectangle="115, 36, 784, 30" DesignTimeScaleFactor="1" ElementType="Toolbar" FriendlyName="'Dirección: Descargas'" FullSelectorArgument="&lt;wnd ctrlid='1001' title='Dirección: Descargas' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1001' title='Dirección: Descargas' check:text='Dirección: Descargas' /&gt;" Guid="db15c1b9-c93d-4f85-aec1-9cfd5638a27f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAxQAAAAiCAYAAADGSJ+8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAT+SURBVHhe7dw/T2RVGMdxXgE9BY2JWXTd1cVl1l2NSkFHwgugoVajkqgFsUD3Hw3W6q6rC7wCQ7JQUg3dhE7ewRTUJCQkx/u7mWfyzPGe4cz1Cqzz/SRPZubcM+feOds8v+HOTgQAAAAAqIlAAQAAAKC2MlAcHx9TFEVRFEVRFEWNXP1AAQAAAACjIlAAAAAAqI1AAQAAAKA2AgUAAACA2ggUAAAAAGrLChSt71+FBxvtgZorxgAAAACMt6xAcf9pO8y/6A7UB0/avaMAAAAAxlVWoLhXhIdPixDhq0WgAAAAAMZeVqCYe9wOn/zWHai7xRgAAACA8ZYVKN4vwsPHRYjwNfvo8gLFyclJmJqaChMTE/3a3d3tHb1+jo6OwvT0dPl4HVXt5+bmZu8oAAAAkC8rUCg8fPS8O1B3Hl5uoJiZmclq0EeZO67iPbKAsbKyUr4GAAAAcmUFiveK8PDhs+5AvVsjUJyenob9/f1wfn7eG8lDoKjW5H7qucZ0DAAAAMiVFShu/9gOD4oQ4etWMTaqvb29sL6+HnZ2dkZqglMhQQ31/Px8/7adra2tgVt57Bt3vW9ycrIc0/Gqpjk1x4+vra31ryO+Jv+66vn29nZ/HX97kV9fNcqtXE3up+2lnd9fl+1HvN82NzWu/bcx+7ewcy8vL/fX9efyeyxVa6TOBwAAgMv3j0Dx7cvDcOO7V2VgsJr96a9w/9fuQGns5g/tfr2x+mdY/eOwt0o1Nb1qfkdtgtV0+qBgjagaSWsyjTWs1pDGr/We+PcCqTl2XmtYNabGV/OGnSd+rjXUAKsR1pj9viJe3x/L8W/201+7+EARH7f90GO83/a+eE+9qv2w+fEe+D32/BpV1wEAAICrUfkXim+KUHH7aSfcK4JDTr1TzL0oTJizs7OwsbFRNsEHBwe90eHiBtfotZpP38zGc22OhRFV3Iym5mh8aWmpbJrFrx2fJ3UsnidaW02xxnRMc4wdy9XUfuoz6rNqTJXaj3i/qz6D0eew9+t9mhufW4+pPZaqNVTxdQAAAOBqJG95Wi1Cxa0nndD6pTu0bhZzvs4ME01+o+6psVTDqeazqmFNNbwmNUfjTQcK+0a/iUDR5H76a6m6Ls/vd2quH/dhJT63HlN7nFrD+OsAAADA1Rj6GwoFBQWGuSI4VNXbjzvhy9/zwoQ0/RsKT82lKp6r1/4WmyqpOTZuDauO27fkPhiIHqu+hY/X1pg1yfH6/liOpvYzvg57PWzPdExl+xDP1Voa13Gdx9/mNezcWsf2MbWGZ9cBAACAq3Hhj7K/KgLDW0VwuPtzd6BmirEvXuSHCVFjWPd/JVLTabe+qNREquG01zqueaJv+TWmR1ETqibV5tq4l5rjzxH/YNgfW1xc7B/zTbM914+Qba41z+LPa410rqb2s+q8/rpU9pcTe+33O15P8yxo6HWr1QoLCwsD++HPl9rj1Bqp6wAAAMDluzBQiILDjUedMFsECZWejxom/g+qmuGL1HnPONM+ab8ICQAAAK+HrEAhnxcB4s2HnbL0fBwRKP57+kuI3eYEAACA6y87UMhnzw/LGlcEiub525q4hQkAAOD1M1KgAAAAAACPQAEAAACgNgIFAAAAgNoIFAAAAABqI1AAAAAAqI1AAQAAAKA2AgUAAACA2vqBgqIoiqIoiqIoatQqAwUAAAAA1EGgAAAAAFBTCH8DRN4cXGhhKssAAAAASUVORK5CYII=" InformativeScreenshot="506e626f7da9e34f0800cc2faf589702.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Ubicación' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">in_vendorsFilePath</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                  </uix:NTypeInto>
+                  <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'unchecked'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05c5ac84-0a1d-4c80-a4d5-464f3fa1c5fb" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CvElementArea="933, 674, 141, 25" CvTextArea="951, 680, 104, 15" CvTextArgument="Seleccionar carpeta" CvType="Button" DesignTimeRectangle="933, 674, 142, 26" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='Seleccionar carpeta' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='Seleccionar carpeta' check:text='unchecked' /&gt;" Guid="c1c09348-9994-45f6-bba6-7d056dc916f4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJIAAAAeCAYAAADHCUctAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI9SURBVHhe7ZbbkcMgDEXpyd1Qyf7RiltxFfudDtwBy9s8JJvELJnd3I8zE4EQQlyLiH3fNQB3gZDAECAkMIRCSOLrG4BuCu0UBuEMAEehncIIDo/HAwAWCAkMAUICQ4CQwBAgJDCE+UJapRZCBKReKZ/EqqVYtNqouRfZlF5GxwSTheQuMROPsdWazTf8gpA+inn1mysk240WpTdqjgRCusd/FZI7mNCL2to5163qJ68qBOlj2bRa4rjQMnU5avwsZr42+KnjKc7zXuWxRsi1WCPlYsapZ5vOsy9WyGc98i3q2NTG+kfbEOLSe91nspAsRzGbS4uXazqXL1I+zvn4eK04ufE6ZpaHu4xyLhXb/bejxNHGa/e0cPnknMUK+cSO3uQafxvI+tWczT3PG4QUCF+Qu8SqKxxfS3ZYzseNExfMjTcxSx/7xXph1YWubCesmEscP7kcNh9DV6w2dsqVqw2VD7nXfd4nJMOmTNs+E0NeCM7n2fGLmF1CKtbZThP9iIuLdOV5Fqu2fYc7hHRxVmuze91nrpDM+14X4mjBfc9Q65PH6RlvY3rhGIpC536Vbb/qniemgMmnO5bPNa1vcr06q4Hd6z5zhRQOXLbfMOcOVs9VhSB92rhJGOT4Wcz64jjbi8KtWaSWPR0pxYh7xXx6Y3nb//nO1weY2qQ/187m9rrPZCGB17kS6XuBkP4MEBIYAoQEPgAICQwBQgJD6BYSAD0U2ikMwhkAjkI7uQHAq0BIYAgQEhjArn8A3AIPDVmmvbQAAAAASUVORK5CYII=" InformativeScreenshot="b4cc6102d373a5db81ff75f2d5bb62d8.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Ubicación' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_8" />
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 2576, 1416" BrowserType="Edge" IconBase64="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" InformativeScreenshot="b4b68c588f7befbb8e1b9e68284b420d.png" Selector="&lt;html app='msedge.exe' title='Configuración' /&gt;" Title="ACME System 1 - Log In">
+          <uix:TargetApp.Url>
+            <InArgument x:TypeArguments="x:String">
+              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">in_settingsURL</CSharpValue>
+            </InArgument>
+          </uix:TargetApp.Url>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
