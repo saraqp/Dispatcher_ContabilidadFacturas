@@ -1,12 +1,11 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_userName" Type="InArgument(x:String)" />
-    <x:Property Name="in_password" Type="InArgument(ss:SecureString)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_userName" Type="OutArgument(x:String)" />
     <x:Property Name="in_dt_exInf" Type="InArgument(sd:DataTable)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1798,2495</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1228,2343</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -119,19 +118,32 @@
       <AssemblyReference>System.Private.Xml</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="528,2430" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="612,2278" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ss:SecureString" Name="password" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: ACME System 1 - Log In" sap:VirtualizedContainerService.HintSize="486,2342" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="337952e7-423c-45d3-bddc-791d9e698f78" Version="V2">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get_Credentials.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="570,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Get_Credentials.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="ss:SecureString" x:Key="out_password">
+          <CSharpReference x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">password</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_userName">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">out_userName</CSharpReference>
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: ACME System 1 - Log In" sap:VirtualizedContainerService.HintSize="570,2037" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="337952e7-423c-45d3-bddc-791d9e698f78" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="452,2125" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="536,1820" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="exist" />
             </Sequence.Variables>
@@ -140,7 +152,76 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Email'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="337952e7-423c-45d3-bddc-791d9e698f78" Version="V3">
+            <ui:Comment sap:VirtualizedContainerService.HintSize="494,94" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Comprobar que el navegador ha cargado correctamente y no ha habido problemas con cargar la página" />
+            <uix:NCheckState DisplayName="Check App State 'Toggle navigation ACME'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="494,881" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="337952e7-423c-45d3-bddc-791d9e698f78" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,664" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="exMessage" />
+                    <Variable x:TypeArguments="x:String" Name="exType" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetExceptionMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="GetExceptionMessage.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_exInf">
+                        <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">in_dt_exInf</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_codException">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">in_Config["SECode_Conection"].ToString()</CSharpValue>
+                      </InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_exMessage">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">exMessage</CSharpReference>
+                      </OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetExceptionType.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="GetExceptionType.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_exInf">
+                        <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">in_dt_exInf</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_codException">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">in_Config["SECode_Conection"].ToString()</CSharpValue>
+                      </InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_exType">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">exType</CSharpReference>
+                      </OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add_Log.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Add_Log.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_description">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">exMessage</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_logsPath">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">in_Config["PathLogs"].ToString()+System.DateTime.Now.ToString("dd-MM-yyyy")+"_DISPATCHER.txt"</CSharpValue>
+                      </InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <Throw sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_1">
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">new SystemException(exMessage)</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/login" DesignTimeRectangle="8, 186, 839, 51" DesignTimeScaleFactor="1" FriendlyName="'Toggle navigation ACME'" FullSelectorArgument="&lt;webctrl tag='NAV' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='NAV' type='' class='navbar navbar-inverse navbar-fixed-top' aaname='      ' check:innerText='ACME System 1&amp;#xD;&amp;#xA;Home&amp;#xD;&amp;#xA;Switch to new theme&amp;#xD;&amp;#xA;Log In' /&gt;" Guid="c6dd608b-7c84-433e-be96-06a0c4dc8079" ImageBase64="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" InformativeScreenshot="c9565859f0b033b503434a7b57d80a9f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ACME System 1 - Log In' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Email'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="494,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="337952e7-423c-45d3-bddc-791d9e698f78" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/login" CvType="InputBox" DesignTimeRectangle="761, 419, 485, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT email'" FullSelectorArgument="&lt;webctrl id='email' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='email' tag='INPUT' type='email' class='form-control ' aaname='Email:' /&gt;" Guid="308295b8-290a-4540-ad75-b72831c277d3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAekAAAAmCAYAAADgB2NCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFtSURBVHhe7dgxroJAGIXRt/+1GVZAaWMhjdIoZswlMtHileJfnJPcAmb6L/DXAICSRBoAivqI9DzPbRzHNgxDOxwOZmZmtsPS3fQ3HX7XI52DXDoej+18PrdpmszMzGyHpbvpbzr8Huoe6RQ8F3K4LEt7PB5mZma2w+73+9rfdDg93vRIp96Xy2W9DADsK/29Xq9rjzc90vknnpIDAL+RDqfHm49I+4oGgN9Jh0UaAAoSaQAoSqQBoCiRBoCiRBoAihJpAChKpAGgKJEGgKJEGgCKEmkAKEqkAaAokQaAokQaAIoSaQAoSqQBoCiRBoCiRBoAihJpAChKpAGgKJEGgKJEGgCKEmkAKEqkAaAokQaAov6N9DAM7Xa7vZ4AgL2lw+nxpkd6HMd2Op1eTwDA3tLh9HjTIz3P81rvXFiW5fUWAPi2dDf9TYfT402PdOQgBc+l/BM3MzOz7y/dTX/fAx0fkQYA6hBpACiptSeoLnMO7Gz4sAAAAABJRU5ErkJggg==" InformativeScreenshot="0c30266700b2adcf8da24ec587523452.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ACME System 1 - Log In' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -152,14 +233,14 @@
               </uix:NTypeInto.Target>
               <uix:NTypeInto.Text>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_userName</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">out_userName</CSharpValue>
                 </InArgument>
               </uix:NTypeInto.Text>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" IsPassword="True" ScopeIdentifier="337952e7-423c-45d3-bddc-791d9e698f78" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="494,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" IsPassword="True" ScopeIdentifier="337952e7-423c-45d3-bddc-791d9e698f78" Version="V3">
               <uix:NTypeInto.SecureText>
                 <InArgument x:TypeArguments="ss:SecureString">
-                  <CSharpValue x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">in_password</CSharpValue>
+                  <CSharpValue x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">password</CSharpValue>
                 </InArgument>
               </uix:NTypeInto.SecureText>
               <uix:NTypeInto.Target>
@@ -172,118 +253,11 @@
                 </uix:TargetAnchorable>
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Login'" sap:VirtualizedContainerService.HintSize="410,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="337952e7-423c-45d3-bddc-791d9e698f78" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Login'" sap:VirtualizedContainerService.HintSize="494,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="337952e7-423c-45d3-bddc-791d9e698f78" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/login" CvElementArea="760, 581, 63, 36" CvTextArea="772, 593, 37, 16" CvTextArgument="Login" CvType="Button" DesignTimeRectangle="761, 583, 60, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Login'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary' aaname='                             Login                         ' check:innerText='Login' /&gt;" Guid="0d8aae73-3754-40bf-a9ab-fbdbd478faec" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAAAmCAYAAAB0xJ2ZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGbSURBVGhD7Zm9bsIwFIX7RJVKH6lzpQ4shbfoK1B1YehGl2bhCVgisSFVDAwwhIntNuc6duzIIKUEN7HvkY5C8E98vvhnyB0lLgFQXVn5z4Ge3r5p9PJB98/vURmZkA0ZbRkAKEClh/EnjV4X9Dj5isrIxNnKjDYEAwB0UMHXOCYjI7JqGQAgE+ObbxoZkVXLAMA68TWI0ciqJQCqqwAQAAJAAHgrx2gB0BmAZUF03NHUV3at5zva04myuafsSg8DwA0dFMA0P1VPgAqa2eX8lrUKylBX9+fMgA2t8Tsvn2fU6KuFgwFQ4euBuvcIRbTPV6q+hnEWgFU2WVF2LO+3G9W2pQMBUINeL+3/1MA5tKftbFs2uADA7othnn32ZYcB4ASojZAAwAEab9AJJQCGDiD5JVCaB9nhJthPAD5ZA1OhtRpHlw7Nqo5BvSwGAaBjc6g/Hm1t3A8APHvsGeHbM27j3swA3vQshQgP9wbAf1kACAABUKUWADWA5D+NJf9xNPnP4xAKQAeVsE5iMjIhmx0ecgCkqMQBEP0CS/rniQf5334AAAAASUVORK5CYII=" InformativeScreenshot="763745a844fb8efe7a986611618bf0dd.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ACME System 1 - Log In' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
               </uix:NClick.Target>
             </uix:NClick>
-            <ui:UiElementExists DisplayName="Element Exists 'STRONG'" sap:VirtualizedContainerService.HintSize="410,107" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
-              <ui:UiElementExists.Exists>
-                <OutArgument x:TypeArguments="x:Boolean">
-                  <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">exist</CSharpReference>
-                </OutArgument>
-              </ui:UiElementExists.Exists>
-              <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4b35654d-68e4-4fd1-8223-b8dfeaa8d611" InformativeScreenshot="a02c8079c43775c781a0da0db246b5dc" Selector="&lt;webctrl tag='STRONG' innertext='These credentials*' /&gt;" TimeoutMS="5000">
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:UiElementExists.Target>
-            </ui:UiElementExists>
-            <If sap:VirtualizedContainerService.HintSize="410,1173" sap2010:WorkflowViewState.IdRef="If_1">
-              <If.Condition>
-                <InArgument x:TypeArguments="x:Boolean">
-                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">exist</CSharpValue>
-                </InArgument>
-              </If.Condition>
-              <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,790" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="x:String" Name="exMessage" />
-                    <Variable x:TypeArguments="x:String" Name="exType" />
-                  </Sequence.Variables>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetExceptionMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="GetExceptionMessage.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_exInf">
-                        <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">in_dt_exInf</CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_codException">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">in_Config["BECode_Credential"].ToString()</CSharpValue>
-                      </InArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_exMessage">
-                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">exMessage</CSharpReference>
-                      </OutArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetExceptionType.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="GetExceptionType.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_exInf">
-                        <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">in_dt_exInf</CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_codException">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">in_Config["BECode_Credential"].ToString()</CSharpValue>
-                      </InArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_exType">
-                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">exType</CSharpReference>
-                      </OutArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendErrorEmail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="SendErrorEmail.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_clientEmail">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">in_Config["Client_Email"].ToString()</CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_subject">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">exType</CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_body">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">exMessage</CSharpValue>
-                      </InArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add_Log.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Add_Log.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_description">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">in_Config["BECode_Credential"].ToString()+": "+exMessage</CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_logsPath">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">in_Config["PathLogs"].ToString()+System.DateTime.Now.ToString("dd-MM-yyyy")+"_DISPATCHER.txt"</CSharpValue>
-                      </InArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                  <Throw sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1">
-                    <InArgument x:TypeArguments="s:Exception">
-                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">new BusinessRuleException("Invalid Credentials")</CSharpValue>
-                    </InArgument>
-                  </Throw>
-                </Sequence>
-              </If.Then>
-              <If.Else>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,201" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add_Log.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Add_Log.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_description">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">in_userName+" has logged"</CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_logsPath">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">in_Config["PathLogs"].ToString()+System.DateTime.Now.ToString("dd-MM-yyyy")+"_DISPATCHER.txt"</CSharpValue>
-                      </InArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                </Sequence>
-              </If.Else>
-            </If>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
