@@ -1,4 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CloseAllApplications" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1798,975" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CloseAllApplications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_userName" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>526,864</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System</x:String>
@@ -12,6 +19,17 @@
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -55,26 +73,69 @@
       <AssemblyReference>System.Security.Permissions</AssemblyReference>
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Do the necessary procedures for ending the process (e.g., logout) and close the used applications." DisplayName="Close All Applications" sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap:VirtualizedContainerService.HintSize="536,799" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (close applications)" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
-      <ui:LogMessage.Level>
-        <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">LogLevel.Trace</CSharpValue>
-        </InArgument>
-      </ui:LogMessage.Level>
-      <ui:LogMessage.Message>
-        <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"Closing applications..."</CSharpValue>
-        </InArgument>
-      </ui:LogMessage.Message>
-    </ui:LogMessage>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="494,75" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Si el usuario tiene la sesión iniciada, cierra sesión" />
+    <uix:NCheckState DisplayName="Check App State 'Login'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="494,596" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="2" Version="V3">
+      <uix:NCheckState.IfExists>
+        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </uix:NCheckState.IfExists>
+      <uix:NCheckState.IfNotExists>
+        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,379" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LogOut.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="LogOut.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add_Log.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Add_Log.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_description">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">in_userName+" has log out"</CSharpValue>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_logsPath">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">in_Config["PathLogs"].ToString()+System.DateTime.Now.ToString("dd-MM-yyyy")+"_DISPATCHER.txt"</CSharpValue>
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </uix:NCheckState.IfNotExists>
+      <uix:NCheckState.Target>
+        <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/login" CvTextArgument="Login" CvType="Text" DesignTimeRectangle="8, 170, 720, 50" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Login'" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='page-header' aaname='                                                                                                                                                                                     Login                                                         ' check:innerText='Login' /&gt;" Guid="dc4880b6-08eb-4647-8312-dc7e118484b4" ImageBase64="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" InformativeScreenshot="97be825482ce2c2b3614feebe9ee6e28.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ACME System 1 - Log In' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+      </uix:NCheckState.Target>
+    </uix:NCheckState>
   </Sequence>
 </Activity>
